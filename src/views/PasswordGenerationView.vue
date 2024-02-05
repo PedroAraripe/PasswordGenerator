@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper-password-generation">
-        <h1>
-            Password Generator
-        </h1>
+        <PageTitle />
+
+        <TextInputCopyable />
 
         <WrapperForm>
             Test
@@ -12,6 +12,8 @@
 
 <script lang="ts" setup>
 import WrapperForm from "@/components/forms/WrapperForm.vue";
+import TextInputCopyable from "@/components/forms/TextInputCopyable.vue";
+import PageTitle from "@/components/pageTemplate/PageTitle.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -23,12 +25,9 @@ import WrapperForm from "@/components/forms/WrapperForm.vue";
     justify-content: center;
     align-items: center;
 
-    & > h1 {
-        margin-bottom: 2rem;
-        color: var(--light-main-color-form);
-        font-weight: 500;
-        font-size: 1.5rem;
-        letter-spacing: 0.1rem;
+    & > * {
+        width: 90%;
+        max-width: 500px;
     }
 }
 </style>

@@ -34,8 +34,10 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+
   --main-color-form: #24232b;
   --light-main-color-form: #828091;
+  --highlight-light-color-form: hsl(250 5% 50% / 1);
 }
 
 @media (prefers-color-scheme: dark) {

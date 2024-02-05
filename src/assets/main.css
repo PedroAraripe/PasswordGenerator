@@ -1,1 +1,9 @@
 @import './base.css';
+
+.form-bg {
+    background-color: var(--main-color-form);
+}
+
+.form-field-space {
+    padding: 2rem;
+}
