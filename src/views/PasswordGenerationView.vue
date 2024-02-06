@@ -5,7 +5,7 @@
         <TextInputCopyable />
 
         <WrapperForm>
-            Test
+            <RangeInput label="Character Length" :min="5" :max="50" />
         </WrapperForm>
     </div>
 </template>
@@ -13,6 +13,7 @@
 <script lang="ts" setup>
 import WrapperForm from "@/components/forms/WrapperForm.vue";
 import TextInputCopyable from "@/components/forms/TextInputCopyable.vue";
+import RangeInput from "@/components/forms/RangeInput.vue";
 import PageTitle from "@/components/pageTemplate/PageTitle.vue";
 </script>
 

@@ -1,16 +1,17 @@
 <template>
-    <div class="wrapper-text-input form-bg">
-        <input
-            class="form-field-space"
-            v-model="text"
-            type="text"
-            name="input-text-password"
-            id="input-text-password"
-        >
-        <button @click="copyText" class="form-field-space">
-            <FontAwesomeIcon :icon="faCopy" />
-        </button>
-        
+    <div class="wrapper-text-input form-bg form-field-space mb-4">
+        <div class="row">
+            <input
+                class="col-11"
+                v-model="text"
+                type="text"
+                name="input-text-password"
+                id="input-text-password"
+            >
+            <button @click="copyText" class="form-highlight-text col-1">
+                <FontAwesomeIcon :icon="faCopy" />
+            </button>
+        </div>
     </div>
 </template>
 
@@ -36,14 +37,8 @@ const copyText: void = () => {
 <style lang="scss" scoped>
 // 
 .wrapper-text-input {
-    margin-bottom: 1.5rem;
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-
-    & > * {
-        font-size: 30px;
+    & > :first-child > * {
+        font-size: 1.6rem;
 
         background: none !important;
         text-decoration: none !important;
@@ -53,11 +48,9 @@ const copyText: void = () => {
 
     & input {
         color: var(--highlight-light-color-form);
-        width: 100%;
     }
 
     & button {
-        color: var(--highlight-light-color-form);
         transition: all 0.3s;
 
         &:hover {

@@ -38,6 +38,10 @@
   --main-color-form: #24232b;
   --light-main-color-form: #828091;
   --highlight-light-color-form: hsl(250 5% 50% / 1);
+  --highlight-color : #a4ffaf;
+  --form-base-color : #ede8e8;
+  --form-dark-highlight : #19161f;
+
 }
 
 @media (prefers-color-scheme: dark) {
