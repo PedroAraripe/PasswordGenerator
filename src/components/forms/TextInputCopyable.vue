@@ -1,12 +1,13 @@
 <template>
-    <div class="wrapper-text-input form-bg form-field-space mb-4">
+    <div class="wrapper-text-input form-bg form-field-space">
         <div class="row">
             <input
-                class="col-11"
+                class="col-11 form-base-text-color"
                 v-model="text"
                 type="text"
                 name="input-text-password"
                 id="input-text-password"
+                placeholder="P4$5W0rD !"
             >
             <button @click="copyText" class="form-highlight-text col-1">
                 <FontAwesomeIcon :icon="faCopy" />
@@ -18,11 +19,11 @@
 <script lang="ts" setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
-import { Ref, ref } from "vue";
+import { type Ref, ref } from "vue";
 
-const text: Ref<string> =  ref("P4$5W0rD !");
+const text: Ref<string> =  ref("");
 
-const copyText: void = () => {
+const copyText: () => void = () => {
   const element = document.querySelector('#input-text-password');
 
   if(element) {
@@ -35,7 +36,6 @@ const copyText: void = () => {
 
 
 <style lang="scss" scoped>
-// 
 .wrapper-text-input {
     & > :first-child > * {
         font-size: 1.6rem;
@@ -44,10 +44,6 @@ const copyText: void = () => {
         text-decoration: none !important;
         border: none !important;
         outline: none;
-    }
-
-    & input {
-        color: var(--highlight-light-color-form);
     }
 
     & button {
