@@ -6,3 +6,7 @@ export interface IOptionCheckbox {
 export interface ICheckboxValues {
   [x: string] : boolean
 }
+
+export interface SecurityLevelsLabel {
+  [x: number] : string
+}

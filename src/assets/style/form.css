@@ -13,3 +13,11 @@
 .form-base-text-color {
   color: var(--form-base-color);
 }
+
+.form-black-highlight {
+  background-color: var(--opaque-black);
+}
+
+.form-item {
+  --form-highlight-color-2 : hsl(42.39deg 46.38% 53.92%);
+}

@@ -14,6 +14,7 @@
 
             <CheckboxInput :options="optionsCheckbox" class="mb-4" />
             
+            <PasswordStrength :password="password" />
         </WrapperForm>
     </div>
 </template>
@@ -23,8 +24,10 @@ import WrapperForm from "@/components/forms/WrapperForm.vue";
 import TextInputCopyable from "@/components/forms/TextInputCopyable.vue";
 import RangeInput from "@/components/forms/RangeInput.vue";
 import CheckboxInput from "@/components/forms/CheckboxInput.vue";
+import PasswordStrength from "@/components/forms/PasswordStrength.vue";
 import PageTitle from "@/components/pageTemplate/PageTitle.vue";
 import { type IOptionCheckbox } from "@/interfaces/forms/OptionCheckbox";
+import { type Ref, ref } from "vue";
 
 const optionsCheckbox: Array<IOptionCheckbox> = [
     {
@@ -44,6 +47,8 @@ const optionsCheckbox: Array<IOptionCheckbox> = [
         label: "Include Symbols",
     },
 ]
+
+const password : Ref<string> = ref("");
 </script>
 
 <style lang="scss" scoped>
@@ -60,4 +65,4 @@ const optionsCheckbox: Array<IOptionCheckbox> = [
         max-width: 500px;
     }
 }
-</style>
+</style>@/interfaces/forms/SecurityLevels

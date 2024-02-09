@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper-range-input" :style="`--current-range: ${currentPercentageRange}`">
     <div class="labels row align-items-center mb-2">
-      <label :for="label" class="col-11">
+      <label :for="label" class="col-11 form-base-text-color">
         {{ label }}
       </label>
       

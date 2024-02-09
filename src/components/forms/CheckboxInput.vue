@@ -95,4 +95,4 @@ defineProps({
     font-size: 1.1rem;  
   }
 }
-</style>
+</style>@/interfaces/forms/SecurityLevels

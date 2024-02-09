@@ -42,6 +42,8 @@
   --form-base-color : #ede8e8;
   --form-dark-highlight : #19161f;
 
+  --opaque-black: hsl(247.5deg 14.81% 10.59%);
+
 }
 
 @media (prefers-color-scheme: dark) {
