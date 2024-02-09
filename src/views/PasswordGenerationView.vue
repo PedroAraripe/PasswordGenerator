@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper-password-generation mt-4">
+    <div class="wrapper-password-generation mt-4 mt-lg-0">
         <PageTitle />
 
         <TextInputCopyable class="mb-4" />
@@ -58,12 +58,11 @@ const password : Ref<string> = ref("");
 
 <style lang="scss" scoped>
 .wrapper-password-generation {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
 
     & > * {
         width: 90%;
