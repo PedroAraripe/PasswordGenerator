@@ -1,15 +1,15 @@
 <template>
-    <div class="wrapper-text-input form-bg form-field-space">
+    <div class="wrapper-text-input form-bg form-field-space py-3">
         <div class="row">
             <input
-                class="col-11 form-base-text-color"
+                class="col-10 col-lg-11 form-base-text-color"
                 v-model="text"
                 type="text"
                 name="input-text-password"
                 id="input-text-password"
                 placeholder="P4$5W0rD !"
             >
-            <button @click="copyText" class="form-highlight-text col-1">
+            <button @click="copyText" class="form-highlight-text col-2 col-lg-1">
                 <FontAwesomeIcon :icon="faCopy" />
             </button>
         </div>

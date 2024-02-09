@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper-password-generation">
+    <div class="wrapper-password-generation mt-4">
         <PageTitle />
 
         <TextInputCopyable class="mb-4" />
@@ -9,13 +9,17 @@
                 label="Character Length"
                 :min="5"
                 :max="50"
-                class="mb-4"
+                class="mb-5 mb-lg-4"
             />
 
-            <CheckboxInput :options="optionsCheckbox" class="mb-4" />
+            <CheckboxInput :options="optionsCheckbox" class="mb-5 mb-lg-4" />
             
-            <PasswordStrength :password="password" />
+            <PasswordStrength :password="password"  class="mb-5 mb-lg-4"/>
+
+            <SubmitButton />
         </WrapperForm>
+
+        <div class="py-4"></div>
     </div>
 </template>
 
@@ -25,6 +29,7 @@ import TextInputCopyable from "@/components/forms/TextInputCopyable.vue";
 import RangeInput from "@/components/forms/RangeInput.vue";
 import CheckboxInput from "@/components/forms/CheckboxInput.vue";
 import PasswordStrength from "@/components/forms/PasswordStrength.vue";
+import SubmitButton from "@/components/forms/SubmitButton.vue";
 import PageTitle from "@/components/pageTemplate/PageTitle.vue";
 import { type IOptionCheckbox } from "@/interfaces/forms/OptionCheckbox";
 import { type Ref, ref } from "vue";

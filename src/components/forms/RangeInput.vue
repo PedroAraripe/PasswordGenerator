@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper-range-input" :style="`--current-range: ${currentPercentageRange}`">
     <div class="labels row align-items-center mb-2">
-      <label :for="label" class="col-11 form-base-text-color">
+      <label :for="label" class="col-10 col-lg-11 form-base-text-color">
         {{ label }}
       </label>
       
-      <div class="range-val form-highlight-text col-1">
+      <div class="range-val form-highlight-text col-2 col-lg-1">
         {{ currentValue }}
       </div>
     </div>
