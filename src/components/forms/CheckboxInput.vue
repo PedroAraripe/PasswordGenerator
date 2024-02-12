@@ -19,18 +19,42 @@
 </template>
 
 <script lang="ts" setup>
-import { type IOptionCheckbox, type ICheckboxValues } from "@/interfaces/forms/OptionCheckbox";
-import { type Ref, ref } from "vue";
+import { type IOptionCheckbox, type ICheckboxValues } from "@/interfaces/forms/SecurityLevels";
+import { type Ref, ref, watch } from "vue";
 
 const checkboxValues: Ref<ICheckboxValues> = ref({})
 
-defineProps({
+const props = defineProps({
   options: {
     type: Array<IOptionCheckbox>,
     required: false,
     default: () => []
   }
-})
+});
+
+const emit = defineEmits(["update:modelValue"]);
+watch(
+  () => checkboxValues.value,
+  (val: ICheckboxValues) => {
+
+    if(!Object.values(checkboxValues.value).filter(c => c).length) {
+      const tempCheckboxValue: ICheckboxValues = {};
+      
+      props.options.forEach(option => {
+        tempCheckboxValue[option.id] = true;
+      })
+
+      setTimeout(()=> checkboxValues.value = tempCheckboxValue, 5)
+    } else {
+      emit("update:modelValue", val);
+    }
+
+  },
+  { 
+    deep: true,
+    immediate: true
+  }
+);
 </script>
 
 <style lang="scss" scoped>

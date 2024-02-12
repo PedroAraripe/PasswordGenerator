@@ -1,26 +1,40 @@
 <template>
-    <div class="wrapper-password-generation mt-4 mt-lg-0">
-        <PageTitle />
+    <form
+        class="wrapper-password-generation mt-4 mt-lg-0"
+        @submit="handlerSubmitForm"
+    >
+        <PageTitle page-title="Password Generator" />
 
-        <TextInputCopyable class="mb-4" />
+        <TextInputCopyable
+            v-model="form.password"
+            class="mb-4"
+        />
 
         <WrapperForm>
             <RangeInput
+                v-model="form.characterLength"
                 label="Character Length"
                 :min="5"
                 :max="50"
-                class="mb-5 mb-lg-4"
+                class="mb-4"
             />
 
-            <CheckboxInput :options="optionsCheckbox" class="mb-5 mb-lg-4" />
+            <CheckboxInput
+                v-model="form.securityLevels"
+                :options="optionsCheckbox"
+                class="mb-4"
+            />
             
-            <PasswordStrength :password="password"  class="mb-5 mb-lg-4"/>
-
+            <PasswordStrength
+                v-model="form.passwordSecurityLevel"
+                :password-securities="form.securityLevels"
+                 class="mb-5 mb-lg-4"
+            />
             <SubmitButton />
         </WrapperForm>
 
         <div class="py-4"></div>
-    </div>
+    </form>
 </template>
 
 <script lang="ts" setup>
@@ -31,7 +45,9 @@ import CheckboxInput from "@/components/forms/CheckboxInput.vue";
 import PasswordStrength from "@/components/forms/PasswordStrength.vue";
 import SubmitButton from "@/components/forms/SubmitButton.vue";
 import PageTitle from "@/components/pageTemplate/PageTitle.vue";
-import { type IOptionCheckbox } from "@/interfaces/forms/OptionCheckbox";
+import { generateNewPassword } from "@/helpers/passwordGeneration";
+import { type IOptionCheckbox } from "@/interfaces/forms/SecurityLevels";
+import { type IPasswordGenerationForm } from "@/interfaces/forms/PasswordGeneration";
 import { type Ref, ref } from "vue";
 
 const optionsCheckbox: Array<IOptionCheckbox> = [
@@ -45,7 +61,7 @@ const optionsCheckbox: Array<IOptionCheckbox> = [
     },
     {
         id: 3,
-        label: "Include numbers",
+        label: "Include Numbers",
     },
     {
         id: 4,
@@ -53,7 +69,19 @@ const optionsCheckbox: Array<IOptionCheckbox> = [
     },
 ]
 
-const password : Ref<string> = ref("");
+const form : Ref<IPasswordGenerationForm> = ref({
+    password: "",
+    characterLength: 10,
+    securityLevels: {},
+    passwordSecurityLevel: 0,
+});
+
+const handlerSubmitForm = (e) => {
+    e.preventDefault();
+
+    form.value.password = generateNewPassword(form.value)
+}
+
 </script>
 
 <style lang="scss" scoped>

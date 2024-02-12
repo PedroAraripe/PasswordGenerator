@@ -19,7 +19,15 @@
 <script lang="ts" setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
-import { type Ref, ref } from "vue";
+import { type Ref, ref, watch, props } from "vue";
+
+const props = defineProps({
+    modelValue: {
+        type: String,
+        required: false,
+        default: ""
+    }
+})
 
 const text: Ref<string> =  ref("");
 
@@ -31,7 +39,15 @@ const copyText: () => void = () => {
       element.setSelectionRange(0, 99999);
       document.execCommand('copy')
   }
-}
+};
+
+const emit = defineEmits(["update:modelValue"]);
+watch(() => text.value, (val: string) => emit("update:modelValue", val));
+
+watch(
+    () => props.modelValue,
+    (val: string) => text.value = val,
+)
 </script>
 
 

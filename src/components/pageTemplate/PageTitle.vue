@@ -1,10 +1,20 @@
 <template>
     <div class="wrapper-page-title">
         <h1>
-            Password Generator
+            {{ pageTitle }}
         </h1>
     </div>
 </template>
+
+<script lang="ts" setup>
+defineProps({
+    pageTitle: {
+        type: String,
+        required: true,
+    }
+})
+</script>
+
 
 <style lang="scss" scoped>
 .wrapper-page-title {

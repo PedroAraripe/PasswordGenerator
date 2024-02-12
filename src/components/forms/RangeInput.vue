@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed, ref, watch, type Ref } from "vue";
 
 const props = defineProps({
   label: {
@@ -40,7 +40,7 @@ const props = defineProps({
   },
 });
 
-const currentValue = ref(props.min);
+const currentValue: Ref<number> = ref(props.min);
 
 const currentPercentageRange = computed(() => {
   const currentValueWithoutOffset = currentValue.value - props.min;
@@ -50,7 +50,12 @@ const currentPercentageRange = computed(() => {
   return `${(baseValue) * 100}%`
 })
 
-
+const emit = defineEmits(["update:modelValue"]);
+watch(
+  () => currentValue.value,
+  (val: number) => emit("update:modelValue", val),
+  { immediate: true },
+);
 </script>
 
 <style lang="scss" scoped>
