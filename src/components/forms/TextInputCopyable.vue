@@ -31,7 +31,8 @@ const props = defineProps({
 
 const text: Ref<string> =  ref("");
 
-const copyText: () => void = () => {
+const copyText: () => void = (e) => {
+    e.preventDefault();
   const element = document.querySelector('#input-text-password');
 
   if(element) {
